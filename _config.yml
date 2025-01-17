@@ -1,0 +1,5 @@
+title: "내 멋진 블로그"
+description: "Jekyll과 GitHub Pages로 운영하는 블로그"
+baseurl: "" # 루트 URL
+url: "https://username.github.io" # GitHub Pages URL
+theme: minima # 기본 테마 설정

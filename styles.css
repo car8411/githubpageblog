@@ -56,3 +56,42 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+
+#login-container {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#login-container h3 {
+    color: #008080;
+    margin-bottom: 20px;
+}
+
+#login-container input {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#login-container button {
+    background: #008080;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#login-container button:hover {
+    background: #005959;
+}
+

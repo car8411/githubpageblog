@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Healthy Life Blog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="header">
+        <h1>Login</h1>
+    </header>
+
+    <main>
+        <div id="login-container">
+            <h3>Login</h3>
+            <form action="/login" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#signup">Sign up</a></p>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <p>&copy; 2025 Healthy Life Blog</p>
+    </footer>
+</body>
+</html>

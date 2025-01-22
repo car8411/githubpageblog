@@ -3,67 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn the best tips for a healthy life. From balanced diets to regular exercise, discover how to stay fit and healthy every day.">
-    <meta name="keywords" content="health tips, healthy lifestyle, fitness, diet, stress management">
-    <meta name="author" content="YourName">
-    <title>Healthy Life Tips - For a Long and Happy Life</title>
+    <title>Healthy Life Blog</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
     <header id="header">
-        <div class="logo-and-nav">
-            <!-- 로고 -->
-            <div id="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="50" height="50">
-                    <circle cx="100" cy="100" r="90" fill="#008080" />
-                    <path d="M100 50 Q130 90 100 130 Q70 90 100 50 Z" fill="#fff" />
-                    <text x="50%" y="88%" text-anchor="middle" fill="#fff" font-size="10" font-family="Arial, sans-serif">
-                        HealthyLife
-                    </text>
-                </svg>
-            </div>
-
-            <!-- 내비게이션 메뉴 -->
-            <nav id="navbar">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#health-tips">Health Tips</a></li>
-                    <li><a href="#diet-recipes">Diet & Recipes</a></li>
-                    <li><a href="#mental-health">Mental Health</a></li>
-                    <li><a href="#exercise">Exercise</a></li>
-                    <li><a href="#about-us">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-
-            <!-- 버튼 -->
-            <div id="buttons">
-                <a href="login.html" class="btn-login">Login</a>
-                <a href="create-post.html" class="btn-create-post">Write a Post</a>
-            </div>
-        </div>
+        <h1>Healthy Life Blog</h1>
+        <nav>
+            <ul>
+                <li><a href="create-post.html">Write a Post</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main id="content">
-        <!-- 게시글 섹션 -->
+    <main>
+        <!-- 카테고리별 게시글 목록 -->
         <section id="health-tips">
             <h2>Health Tips</h2>
-            <ul id="health-tips-list">
-                <li>Tip 1: Drink more water.</li>
-                <li>Tip 2: Get enough sleep.</li>
-            </ul>
+            <ul id="health-tips-list"></ul>
         </section>
 
         <section id="diet-recipes">
             <h2>Diet & Recipes</h2>
             <ul id="diet-recipes-list"></ul>
         </section>
+
+        <section id="mental-health">
+            <h2>Mental Health</h2>
+            <ul id="mental-health-list"></ul>
+        </section>
+
+        <section id="exercise">
+            <h2>Exercise</h2>
+            <ul id="exercise-list"></ul>
+        </section>
     </main>
 
     <footer id="footer">
-        <p>&copy; 2025 Healthy Life Blog | Designed by YourName</p>
-        <p><a href="mailto:contact@healthylifeblog.com">Contact Us</a></p>
+        <p>&copy; 2025 Healthy Life Blog</p>
     </footer>
+
+    <script>
+        // 로컬 저장소에서 게시글 불러오기
+        const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+
+        // 카테고리별로 게시글 추가
+        posts.forEach(post => {
+            const listId = `${post.category}-list`;
+            const list = document.getElementById(listId);
+
+            if (list) {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<strong>${post.title}</strong>: ${post.content}`;
+                list.appendChild(listItem);
+            }
+        });
+    </script>
 </body>
 </html>

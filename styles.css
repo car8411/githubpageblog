@@ -1,3 +1,4 @@
+/* 전체 스타일 */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -7,33 +8,68 @@ body {
     background-color: #f9f9f9;
 }
 
+/* 헤더 스타일 */
 header {
     background: #008080;
     color: #fff;
     padding: 10px 20px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+/* 로고와 네비게이션을 가로 정렬 */
+.logo-and-nav {
+    display: flex;
+    align-items: center;
+}
+
+/* 로고 스타일 */
+#logo {
+    margin-right: 20px;
+}
+
+/* 네비게이션 스타일 */
 nav ul {
     list-style: none;
-    background: #333;
-    overflow: hidden;
-    color: #fff;
-    padding: 0;
-    text-align: center;
     margin: 0;
+    padding: 0;
+    display: flex;
 }
 
 nav ul li {
-    display: inline;
-    padding: 10px 15px;
+    margin-right: 15px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-size: 16px;
 }
 
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* 로그인 버튼 스타일 */
+#login-button {
+    margin-left: auto;
+}
+
+.btn-login {
+    color: #fff;
+    text-decoration: none;
+    background: #005959;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn-login:hover {
+    background: #003f3f;
+}
+
+/* 메인 콘텐츠 */
 main {
     padding: 20px;
     background: #fff;
@@ -43,10 +79,12 @@ main {
     border-radius: 5px;
 }
 
+/* 섹션 스타일 */
 section {
     margin-bottom: 20px;
 }
 
+/* 푸터 스타일 */
 footer {
     text-align: center;
     padding: 10px;
@@ -57,7 +95,7 @@ footer {
     width: 100%;
 }
 
-
+/* 로그인 창 스타일 */
 #login-container {
     background: #f9f9f9;
     padding: 20px;
@@ -94,4 +132,3 @@ footer {
 #login-container button:hover {
     background: #005959;
 }
-

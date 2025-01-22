@@ -26,15 +26,29 @@
 
     <nav id="navbar">
         <ul>
-            <li><a href="#tip1">Sleep Well</a></li>
-            <li><a href="#tip2">Drink Water</a></li>
-            <li><a href="#tip3">Balanced Diet</a></li>
-            <li><a href="#tip4">Exercise</a></li>
-            <li><a href="#tip5">Manage Stress</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#health-tips">Health Tips</a></li>
+        <li><a href="#diet-recipes">Diet & Recipes</a></li>
+        <li><a href="#mental-health">Mental Health</a></li>
+        <li><a href="#exercise">Exercise</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <main id="content">
+<div id="login-container">
+    <h3>Login</h3>
+    <form action="/login" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#signup">Sign up</a></p>
+</div>
+    
+        <main id="content">
         <section id="tip1">
             <h2>1. Sleep Well</h2>
             <p>Getting 7-8 hours of quality sleep each night boosts your immune system and keeps your mind sharp. Turn off electronics an hour before bedtime and keep your room dark and cool.</p>

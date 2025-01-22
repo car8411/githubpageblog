@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Post - Healthy Life Blog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="header">
+        <h1>Create a New Post</h1>
+    </header>
+
+    <main>
+        <form id="blogForm">
+            <label for="category">Select a Category:</label>
+            <select id="category" required>
+                <option value="health-tips">Health Tips</option>
+                <option value="diet-recipes">Diet & Recipes</option>
+                <option value="mental-health">Mental Health</option>
+                <option value="exercise">Exercise</option>
+            </select><br><br>
+
+            <label for="title">Post Title:</label>
+            <input type="text" id="title" name="title" placeholder="Enter the title" required><br><br>
+
+            <label for="content">Post Content:</label>
+            <textarea id="content" name="content" placeholder="Write your content here..." rows="10" required></textarea><br><br>
+
+            <button type="submit">Publish</button>
+        </form>
+    </main>
+
+    <footer id="footer">
+        <p>&copy; 2025 Healthy Life Blog</p>
+    </footer>
+
+    <script>
+        document.getElementById('blogForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // 데이터 가져오기
+            const category = document.getElementById('category').value;
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+
+            // 선택한 카테고리 목록 가져오기
+            const listId = `${category}-list`;
+            const list = document.getElementById(listId);
+
+            // 새로운 게시글 추가
+            const newPost = document.createElement('li');
+            newPost.textContent = `${title}: ${content}`;
+            list.appendChild(newPost);
+
+            // 메시지 확인 및 초기화
+            alert('Your post has been published!');
+            document.getElementById('blogForm').reset();
+        });
+    </script>
+</body>
+</html>

@@ -3,32 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a Post - Healthy Life Blog</title>
+    <title>Healthy Life Blog</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header id="header">
-        <h1>Create a New Post</h1>
+        <h1>Healthy Life Blog</h1>
+        <nav>
+            <ul>
+                <li><a href="create-post.html">Write a Post</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <form id="blogForm">
-            <label for="category">Select a Category:</label>
-            <select id="category" required>
-                <option value="health-tips">Health Tips</option>
-                <option value="diet-recipes">Diet & Recipes</option>
-                <option value="mental-health">Mental Health</option>
-                <option value="exercise">Exercise</option>
-            </select><br><br>
+        <!-- 카테고리별 게시글 목록 -->
+        <section id="health-tips">
+            <h2>Health Tips</h2>
+            <ul id="health-tips-list"></ul>
+        </section>
 
-            <label for="title">Post Title:</label>
-            <input type="text" id="title" name="title" placeholder="Enter the title" required><br><br>
+        <section id="diet-recipes">
+            <h2>Diet & Recipes</h2>
+            <ul id="diet-recipes-list"></ul>
+        </section>
 
-            <label for="content">Post Content:</label>
-            <textarea id="content" name="content" placeholder="Write your content here..." rows="10" required></textarea><br><br>
+        <section id="mental-health">
+            <h2>Mental Health</h2>
+            <ul id="mental-health-list"></ul>
+        </section>
 
-            <button type="submit">Publish</button>
-        </form>
+        <section id="exercise">
+            <h2>Exercise</h2>
+            <ul id="exercise-list"></ul>
+        </section>
     </main>
 
     <footer id="footer">
@@ -36,30 +44,19 @@
     </footer>
 
     <script>
-        document.getElementById('blogForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // 로컬 저장소에서 게시글 불러오기
+        const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
 
-            // 데이터 가져오기
-            const category = document.getElementById('category').value;
-            const title = document.getElementById('title').value;
-            const content = document.getElementById('content').value;
+        // 카테고리별로 게시글 추가
+        posts.forEach(post => {
+            const listId = `${post.category}-list`;
+            const list = document.getElementById(listId);
 
-            // 기존 저장된 데이터 가져오기
-            const existingPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-
-            // 새로운 게시글 추가
-            const newPost = { category, title, content };
-            existingPosts.push(newPost);
-
-            // 로컬 저장소에 저장
-            localStorage.setItem('blogPosts', JSON.stringify(existingPosts));
-
-            // 성공 메시지 및 초기화
-            alert('Your post has been published!');
-            document.getElementById('blogForm').reset();
-
-            // 메인 페이지로 이동
-            window.location.href = 'index.html';
+            if (list) {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<strong>${post.title}</strong>: ${post.content}`;
+                list.appendChild(listItem);
+            }
         });
     </script>
 </body>

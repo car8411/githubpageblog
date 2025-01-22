@@ -44,16 +44,17 @@
             const title = document.getElementById('title').value;
             const content = document.getElementById('content').value;
 
-            // 선택한 카테고리 목록 가져오기
-            const listId = `${category}-list`;
-            const list = document.getElementById(listId);
+            // 기존 저장된 데이터 가져오기
+            const existingPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
 
             // 새로운 게시글 추가
-            const newPost = document.createElement('li');
-            newPost.textContent = `${title}: ${content}`;
-            list.appendChild(newPost);
+            const newPost = { category, title, content };
+            existingPosts.push(newPost);
 
-            // 메시지 확인 및 초기화
+            // 로컬 저장소에 저장
+            localStorage.setItem('blogPosts', JSON.stringify(existingPosts));
+
+            // 성공 메시지 및 초기화
             alert('Your post has been published!');
             document.getElementById('blogForm').reset();
         });
